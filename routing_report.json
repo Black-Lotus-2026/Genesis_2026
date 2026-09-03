@@ -1,0 +1,51 @@
+{
+  "period": "2026-09-03",
+  "total_operations": 10,
+  "distribution": {
+    "vipay": {
+      "count": 4,
+      "share_pct": 40.0,
+      "target_pct": 40.0
+    },
+    "payflow": {
+      "count": 3,
+      "share_pct": 30.0,
+      "target_pct": 35.0
+    },
+    "quickpay": {
+      "count": 3,
+      "share_pct": 30.0,
+      "target_pct": 25.0
+    },
+    "spacepayments": {
+      "count": 0,
+      "share_pct": 0.0,
+      "target_pct": 0.0
+    }
+  },
+  "skip_reasons": {
+    "bank_not_in_list": 8,
+    "amount_exceeds_limit": 3,
+    "amount_below_minimum": 2
+  },
+  "projected_daily_utilization": {
+    "vipay": {
+      "used": 3302000,
+      "limit": 5000000,
+      "utilization_pct": 66.04
+    },
+    "payflow": {
+      "used": 2988800,
+      "limit": 3000000,
+      "utilization_pct": 99.63
+    },
+    "quickpay": {
+      "used": 1295000,
+      "limit": 8000000,
+      "utilization_pct": 16.19
+    }
+  },
+  "recommendations": [
+    "payflow близок к дневному лимиту (99.63%) - снизить traffic_percentage"
+  ]
+}
