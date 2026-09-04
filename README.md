@@ -37,19 +37,19 @@ Genesis_2026/
 
 ```mermaid
 flowchart TD
-    A["Входящая операция (Operation Queue)"] --> B["Парсинг Operation и Provider State"]
-    B --> C["Hard-Constraints Filter (10 правил)"]
-    C -->|Провайдер не прошел| D["Запись в attempts: decision='skipped', reason, details"]
-    C -->|Провайдер допущен| E{"Есть допущенные коммерческие провайдеры?"}
-    E -->|Да: Eligible Providers| F["Active Strategy Engine (Strategy Pattern)"]
-    F --> G["Выбор победителя (Score / Priority / Tier)"]
-    G --> H["Запись в attempts: decision='selected', reason, details"]
-    E -->|Нет: All Ineligible| I["Level 4 Fallback: spacepayments"]
-    I --> J["Запись в attempts: decision='selected', reason='fallback_provider'"]
-    H --> K["Сортировка attempts по приоритету (1 -> 2 -> 3 -> 99)"]
+    A["Входящая операция<br/>(Operation Queue)"] --> B["Парсинг Operation<br/>и Provider State"]
+    B --> C["Hard-Constraints Filter<br/>(10 правил допуска)"]
+    C -->|Отсеян| D["Запись в attempts:<br/>decision='skipped', reason, details"]
+    C -->|Допущен| E{"Есть допущенные<br/>коммерческие шлюзы?"}
+    E -->|Да: Eligible| F["Active Strategy Engine<br/>(Strategy Pattern)"]
+    F --> G["Выбор победителя<br/>(Score / Priority / Tier)"]
+    G --> H["Запись в attempts:<br/>decision='selected', reason, details"]
+    E -->|Нет: Ineligible| I["Level 4 Fallback:<br/>spacepayments"]
+    I --> J["Запись в attempts:<br/>decision='selected', reason='fallback_provider'"]
+    H --> K["Сортировка attempts<br/>по приоритету (1 → 2 → 3 → 99)"]
     J --> K
-    K --> L["Обновление StateTracker (оборот, счетчики, утилизация)"]
-    L --> M["Формирование routing_decisions.json и routing_report.json"]
+    K --> L["Обновление StateTracker<br/>(оборот, счетчики, утилизация)"]
+    L --> M["Формирование отчетов:<br/>routing_decisions.json и routing_report.json"]
 ```
 
 ---
@@ -77,11 +77,11 @@ flowchart TD
 
 #### 2. `traffic_share_balanced` (Балансировка по количеству операций)
 Максимизируется текущий дефицит целевой доли операций:
-$$\Delta_{\text{count}}(P) = \text{target\_pct}(P) - \left( \frac{\text{processed\_count}(P)}{\text{total\_operations}} \times 100\% \right)$$
+$$\Delta_{\text{count}}(P) = \text{TargetCountShare}(P) - \left( \frac{\text{ProcessedCount}(P)}{\text{TotalOperations}} \times 100\% \right)$$
 
 #### 3. `volume_share_balanced` (Балансировка по денежному объему)
 Максимизируется текущий дефицит целевого оборота:
-$$\Delta_{\text{vol}}(P) = \text{target\_volume\_pct}(P) - \left( \frac{\text{processed\_volume}(P)}{\text{total\_volume}} \times 100\% \right)$$
+$$\Delta_{\text{vol}}(P) = \text{TargetVolumeShare}(P) - \left( \frac{\text{ProcessedVolume}(P)}{\text{TotalVolume}} \times 100\% \right)$$
 
 #### 4. `amount_tiered` (Сегментация по суммам чеков)
 - Сумма $\le 50\,000$ ₽: приоритетно направляется в `payflow` (сберегая лимиты конкурентов).
@@ -96,7 +96,7 @@ $$\text{Score}(P) = w_{\text{count}} \cdot \Delta_{\text{count}}(P) + w_{\text{v
 
 Где:
 - $\text{SR}(P, \text{bank})$ — эмпирическая матрица успешности (Success Rate) провайдера на конкретном банке получателя (извлечена из `operations_history.csv`).
-- $\text{UtilRate}(P) = \frac{\text{daily\_approved\_amount}(P)}{\text{daily\_amount\_limit}(P)}$ — текущая доля выработки дневного лимита.
+- $\text{UtilRate}(P) = \frac{\text{DailyApprovedAmount}(P)}{\text{DailyAmountLimit}(P)}$ — текущая доля выработки дневного лимита.
 - $\text{Penalties}$ — штрафные коэффициенты иерархии разрешения конфликтов.
 
 ### 2.3. Иерархия разрешения конфликтов (Arbitration Hierarchy)
