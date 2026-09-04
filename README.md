@@ -77,11 +77,11 @@ flowchart TD
 
 #### 2. `traffic_share_balanced` (Балансировка по количеству операций)
 Максимизируется текущий дефицит целевой доли операций:
-$$\Delta_{\text{count}}(P) = \text{TargetCountShare}(P) - \left( \frac{\text{ProcessedCount}(P)}{\text{TotalOperations}} \times 100\% \right)$$
+$$\Delta_{\text{count}}(P) = \text{TargetCountShare}(P) -  \frac{\text{ProcessedCount}(P)}{\text{TotalOperations}} \times 100\% $$
 
 #### 3. `volume_share_balanced` (Балансировка по денежному объему)
 Максимизируется текущий дефицит целевого оборота:
-$$\Delta_{\text{vol}}(P) = \text{TargetVolumeShare}(P) - \left( \frac{\text{ProcessedVolume}(P)}{\text{TotalVolume}} \times 100\% \right)$$
+$$\Delta_{\text{vol}}(P) = \text{TargetVolumeShare}(P) -  \frac{\text{ProcessedVolume}(P)}{\text{TotalVolume}} \times 100\%  $$
 
 #### 4. `amount_tiered` (Сегментация по суммам чеков)
 - Сумма $\le 50\,000$ ₽: приоритетно направляется в `payflow` (сберегая лимиты конкурентов).
@@ -141,9 +141,7 @@ $$\text{Score}(P) = w_{\text{count}} \cdot \Delta_{\text{count}}(P) + w_{\text{v
 
 ---
 
-## 4. Команды запуска и верификации
-
-### 4.1. Стандартный запуск роутера
+## 4. Команды запуска
 Запуск с путями по умолчанию (`data/providers.json`, `data/operations_queue_10.json`, формирование `routing_decisions.json` и `routing_report.json`):
 ```bash
 ruby router.rb
@@ -157,29 +155,4 @@ ruby router.rb data/providers.json data/operations_queue_10.json routing_decisio
 Запуск с выбором стратегии (`priority_cascade`, `hybrid_adaptive`, `amount_tiered`, `traffic_share_balanced`, `volume_share_balanced`):
 ```bash
 ruby router.rb data/providers.json data/operations_queue_10.json routing_decisions.json routing_report.json hybrid_adaptive
-```
-
-### 4.2. Запуск валидатора хакатона
-Проверка сформированного файла решений эталонным скриптом жюри:
-```bash
-ruby scripts/validate_10.rb routing_decisions.json
-```
-
-**Результат валидации:**
-```text
-=== Проверка routing_decisions.json ===
-Заявок в очереди: 10
-Решений в файле:  10
-
-✅ Все заявки из очереди покрыты
-✅ Структура JSON корректна
-✅ op_103: корректно выбран quickpay
-✅ op_104: корректно выбран quickpay
-✅ op_107: корректно выбран payflow
-✅ op_108: корректно выбран quickpay
-...
-=== Итого ===
-✅ Пройдено: 29
-❌ Ошибок:   0
-⚠️  Предупр.: 0
 ```
