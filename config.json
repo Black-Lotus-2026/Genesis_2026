@@ -1,0 +1,18 @@
+{
+  "default_strategy": "priority_cascade",
+  "strategies": {
+    "hybrid_adaptive": {
+      "w_count": 1.0,
+      "w_vol": 0.8,
+      "w_conv": 25.0,
+      "w_util": 15.0,
+      "w_prio": 0.5,
+      "penalty_util_high": 50.0,
+      "penalty_low_sr": 50.0
+    },
+    "traffic_share_balanced": {},
+    "volume_share_balanced": {},
+    "amount_tiered": {},
+    "priority_cascade": {}
+  }
+}
