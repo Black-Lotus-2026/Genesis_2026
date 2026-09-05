@@ -7,6 +7,7 @@ module Filters
     def self.evaluate(provider, operation)
       amount = operation.amount
       bank = operation.bank
+      provider.prune_request_timestamps!(operation.created_time)
 
       # 1. Статус провайдера
       unless provider.active?
@@ -89,6 +90,12 @@ module Filters
             return [false, 'bank_not_in_list', "bank '#{bank}' not in whitelist #{banks}"]
           end
         end
+      end
+
+      # 11. Скользящий лимит интенсивности: проверки кандидатов не расходуют RPM.
+      if provider.requests_per_minute_limit && provider.request_timestamps.size >= provider.requests_per_minute_limit
+        return [false, 'rpm_limit_exceeded',
+                "#{provider.request_timestamps.size} requests in the last 60 seconds >= limit #{provider.requests_per_minute_limit}"]
       end
 
       [true, nil, nil]

@@ -1,5 +1,5 @@
 {
-  "period": "2026-09-04",
+  "period": "2026-07-30",
   "total_operations": 10,
   "distribution": {
     "vipay": {
@@ -27,7 +27,7 @@
       "count": 0,
       "share_pct": 0.0,
       "target_pct": 0.0,
-      "volume_rub": 0.0,
+      "volume_rub": 0,
       "volume_share_pct": 0.0
     }
   },
@@ -36,28 +36,48 @@
     "amount_exceeds_limit": 3,
     "amount_below_minimum": 2
   },
+  "provider_skip_reasons": {
+    "vipay": {
+      "bank_not_in_list": 4,
+      "amount_exceeds_limit": 1,
+      "amount_below_minimum": 1
+    },
+    "payflow": {
+      "amount_exceeds_limit": 2,
+      "bank_not_in_list": 4
+    },
+    "quickpay": {
+      "amount_below_minimum": 1
+    },
+    "spacepayments": {
+    }
+  },
   "projected_daily_utilization": {
     "vipay": {
       "used": 3302000.0,
       "limit": 5000000.0,
+      "remaining": 1698000.0,
       "utilization_pct": 66.04
     },
     "payflow": {
       "used": 2988800.0,
       "limit": 3000000.0,
+      "remaining": 11200.0,
       "utilization_pct": 99.63
     },
     "quickpay": {
       "used": 1295000.0,
       "limit": 8000000.0,
+      "remaining": 6705000.0,
       "utilization_pct": 16.19
     }
   },
+  "daily_turnover_progress": {
+  },
   "recommendations": [
-    "Превышение квоты Quickpay вызвано монополией на банки Gazprombank и Raiffeisen (28% входящего потока)",
-    "Отставание Payflow вызвано лимитом максимального чека (50 000 ₽ отсекает 26% трафика) и поддержкой только 2 банков",
-    "payflow близок к дневному лимиту (99.63%) - снизить traffic_percentage",
-    "Увеличить daily_amount_limit для Payflow или снизить его target_pct до 20%",
-    "Подключить прием Альфа-Банка к ViPay для разгрузки Quickpay"
+    "Выявлена низкая надежность vipay на банках alfa, gazprombank, raiffeisen, sberbank, tinkoff, vtb. Рекомендация: ограничить in_progress_count_limit до 8 слотов во избежание парализации очереди",
+    "payflow исчерпал 99.63% суточного лимита (остаток: 11200.0 ₽). Рекомендация: увеличить daily_amount_limit на 736000 ₽ или снизить traffic_percentage с 35.0% до 28.1%",
+    "Выявлена низкая надежность payflow на банках alfa, raiffeisen, tinkoff, vtb. Рекомендация: ограничить in_progress_count_limit до 3 слотов во избежание парализации очереди",
+    "Выявлена низкая надежность quickpay на банках alfa, gazprombank, raiffeisen, sberbank, tinkoff, vtb. Рекомендация: ограничить in_progress_count_limit до 10 слотов во избежание парализации очереди"
   ]
 }
