@@ -30,7 +30,8 @@ if File.exist?(config_path)
 end
 
 active_strategy = strategy_param || ENV['ROUTING_STRATEGY'] || config['default_strategy'] || 'priority_cascade'
-strategy_config = (config['strategies'] && config['strategies'][active_strategy]) || {}
+strategy_config_name = %w[scoring adaptive].include?(active_strategy.downcase) ? 'hybrid_adaptive' : active_strategy.downcase
+strategy_config = (config['strategies'] && config['strategies'][strategy_config_name]) || {}
 
 # 2. Проверка входных файлов
 unless File.exist?(providers_path)
@@ -58,7 +59,8 @@ queue_list     = queue_raw.is_a?(Array) ? queue_raw : [queue_raw]
 router = Engine::PaymentRouter.new(
   providers_list,
   strategy_name: active_strategy,
-  config: strategy_config
+  config: strategy_config,
+  history_statistics: config.dig('calibration', 'providers') || {}
 )
 
 decisions, report = router.route_all(queue_list)

@@ -13,7 +13,7 @@ module Engine
 
     attr_reader :providers, :strategy, :skip_reasons_counter, :total_operations, :total_volume
 
-    def initialize(providers_data, strategy_name: 'priority_cascade', config: {})
+    def initialize(providers_data, strategy_name: 'priority_cascade', config: {}, history_statistics: {}, random: Random.new)
       # Глубокое копирование и инициализация доменных моделей
       raw_providers = providers_data.is_a?(Hash) ? providers_data['providers'] : providers_data
       @providers = raw_providers.map { |p| Models::Provider.new(p) }
@@ -21,16 +21,30 @@ module Engine
       @skip_reasons_counter = Hash.new(0)
       @total_operations = 0
       @total_volume = 0.0
+      @history_statistics = history_statistics
+      @random = random
+      @last_operation_time = nil
     end
 
     def route_all(queue)
       operations = queue.map { |op| op.is_a?(Models::Operation) ? op : Models::Operation.new(op) }
-      decisions = operations.map { |op| route_operation(op) }
-      report = Analytics::ReportGenerator.generate(@providers, decisions, @skip_reasons_counter)
+      # RPM рассчитывается по времени событий, результат сохраняет порядок входа.
+      decisions = Array.new(operations.size)
+      operations.each_with_index.sort_by { |op, index| [op.created_time, index] }.each do |op, index|
+        decisions[index] = route_operation(op)
+      end
+      report = Analytics::ReportGenerator.generate(
+        @providers, decisions, @skip_reasons_counter,
+        operations: operations, history_statistics: @history_statistics
+      )
       [decisions, report]
     end
 
     def route_operation(operation)
+      if @last_operation_time && operation.created_time < @last_operation_time
+        raise ArgumentError, 'Operations must be routed in chronological order; use route_all for an unsorted queue'
+      end
+      @last_operation_time = operation.created_time
       commercial_providers = @providers.reject(&:fallback?).sort_by(&:priority)
       attempts = []
       eligible = []
@@ -69,18 +83,28 @@ module Engine
         }
       else
         # Level 4 Fallback: переход на spacepayments
-        fallback_provider = @providers.find(&:fallback?) || Models::Provider.new({
-          'payment_system' => FALLBACK_SYSTEM,
-          'priority' => 99,
-          'avg_latency_sec' => 15
-        })
-        winner = fallback_provider
-        attempts << {
-          'provider' => FALLBACK_SYSTEM,
-          'decision' => 'selected',
-          'reason' => 'fallback_provider',
-          'details' => 'All commercial providers ineligible, routed to fallback gateway'
-        }
+        fallback_provider = @providers.find(&:fallback?)
+        unless fallback_provider
+          fallback_provider = Models::Provider.new({
+            'payment_system' => FALLBACK_SYSTEM, 'status' => 'active',
+            'priority' => 99, 'avg_latency_sec' => 15, 'available_requisites' => 1
+          })
+          @providers << fallback_provider
+        end
+        allowed, skip_reason, skip_details = Filters::HardConstraintsFilter.evaluate(fallback_provider, operation)
+        if allowed
+          winner = fallback_provider
+          attempts << {
+            'provider' => FALLBACK_SYSTEM,
+            'decision' => 'selected',
+            'reason' => 'fallback_provider',
+            'details' => 'All commercial providers ineligible, routed to fallback gateway'
+          }
+        else
+          attempts << { 'provider' => FALLBACK_SYSTEM, 'decision' => 'skipped',
+                        'reason' => skip_reason, 'details' => skip_details }
+          @skip_reasons_counter[skip_reason] += 1
+        end
       end
 
       # 3. Детерминированная сортировка попыток по возрастанию приоритета
@@ -90,18 +114,24 @@ module Engine
       end
 
       # 4. Обновление состояния и метрик
-      winner.approve_operation!(operation.amount)
+      if winner
+        winner.record_request!(operation.created_time)
+        winner.approve_operation!(operation.amount)
+        @total_volume += operation.amount
+      end
       @total_operations += 1
-      @total_volume += operation.amount
 
-      # 5. Моделирование задержки (в диапазоне 15..60 секунд)
-      latency = [[winner.avg_latency_sec, 15].max, 60].min
+      # 5. Паспортная задержка с равномерным разбросом ±15%.
+      latency = winner ? winner.avg_latency_sec * (0.85 + @random.rand * 0.30) : 0.0
 
       {
         'operation_id' => operation.operation_id,
-        'selected_provider' => winner.payment_system,
+        'created_at' => operation.created_at,
+        'amount' => operation.amount,
+        'bank' => operation.bank,
+        'selected_provider' => winner&.payment_system,
         'attempts' => attempts,
-        'simulated_result' => 'approved',
+        'simulated_result' => winner ? 'approved' : 'rejected',
         'latency_sec' => latency
       }
     end

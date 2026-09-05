@@ -10,7 +10,8 @@ module Models
                 :in_progress_count_limit, :in_progress_amount_limit,
                 :conversion_24h, :avg_latency_sec, :banks, :exclude_banks,
                 :provider_margin_pct, :merchant_margin_pct, :allow_negative_agreement,
-                :note, :raw_data
+                :note, :raw_data, :requests_per_minute_limit, :request_timestamps,
+                :daily_turnover_min
 
     attr_accessor :daily_approved_amount, :in_progress_count, :in_progress_amount,
                   :available_requisites, :processed_count, :processed_volume
@@ -24,6 +25,9 @@ module Models
       @limit_amount_min = data['limit_amount_min'] ? data['limit_amount_min'].to_f : nil
       @limit_amount_max = data['limit_amount_max'] ? data['limit_amount_max'].to_f : nil
       @daily_amount_limit = data['daily_amount_limit'] ? data['daily_amount_limit'].to_f : nil
+      @daily_turnover_min = data['daily_turnover_min']&.to_f
+      @requests_per_minute_limit = data['requests_per_minute_limit']&.to_i
+      @request_timestamps = []
       @daily_approved_amount = data['daily_approved_amount'].to_f
       @in_progress_count_limit = data['in_progress_count_limit'] ? data['in_progress_count_limit'].to_i : nil
       @in_progress_count = data['in_progress_count'].to_i
@@ -31,7 +35,7 @@ module Models
       @in_progress_amount = data['in_progress_amount'].to_f
       @available_requisites = data['available_requisites'].to_i
       @conversion_24h = data['conversion_24h'].to_f
-      @avg_latency_sec = data['avg_latency_sec'] ? data['avg_latency_sec'].to_i : 30
+      @avg_latency_sec = data['avg_latency_sec'] ? data['avg_latency_sec'].to_f : 30.0
       @banks = Array(data['banks']).map(&:to_s)
       @exclude_banks = data['exclude_banks'] == true
       @provider_margin_pct = data['provider_margin_pct'].to_f
@@ -49,6 +53,22 @@ module Models
 
     def active?
       @status == 'active'
+    end
+
+    def supports_bank?(bank)
+      return true if @banks.empty?
+
+      @exclude_banks ? !@banks.include?(bank) : @banks.include?(bank)
+    end
+
+    def prune_request_timestamps!(at)
+      # Ровно 60 секунд еще входят в окно; удаляем только более старые метки.
+      @request_timestamps.reject! { |timestamp| timestamp < at - 60 }
+    end
+
+    def record_request!(at)
+      prune_request_timestamps!(at)
+      @request_timestamps << at
     end
 
     def utilization_rate
@@ -76,6 +96,8 @@ module Models
         'limit_amount_min' => @limit_amount_min,
         'limit_amount_max' => @limit_amount_max,
         'daily_amount_limit' => @daily_amount_limit,
+        'daily_turnover_min' => @daily_turnover_min,
+        'requests_per_minute_limit' => @requests_per_minute_limit,
         'daily_approved_amount' => @daily_approved_amount,
         'in_progress_count_limit' => @in_progress_count_limit,
         'in_progress_count' => @in_progress_count,

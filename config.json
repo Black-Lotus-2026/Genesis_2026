@@ -3,16 +3,733 @@
   "strategies": {
     "hybrid_adaptive": {
       "w_count": 1.0,
-      "w_vol": 0.8,
-      "w_conv": 25.0,
-      "w_util": 15.0,
-      "w_prio": 0.5,
-      "penalty_util_high": 50.0,
-      "penalty_low_sr": 50.0
+      "w_vol": 1.991326,
+      "w_conv": 32.0,
+      "w_util": 16.0,
+      "w_prio": 0.68,
+      "penalty_util_high": 48.0,
+      "penalty_low_sr": 100.0,
+      "bank_success_rates": {
+        "payflow": {
+          "alfa": 0.2857142857142857,
+          "raiffeisen": 0.5,
+          "sberbank": 1.0,
+          "tinkoff": 0.0,
+          "vtb": 0.6666666666666666
+        },
+        "quickpay": {
+          "alfa": 0.7142857142857143,
+          "gazprombank": 0.6,
+          "raiffeisen": 0.7142857142857143,
+          "sberbank": 0.2,
+          "tinkoff": 0.6666666666666666,
+          "vtb": 0.9
+        },
+        "vipay": {
+          "alfa": 0.625,
+          "gazprombank": 0.8,
+          "raiffeisen": 0.8571428571428571,
+          "sberbank": 0.875,
+          "tinkoff": 0.8333333333333334,
+          "vtb": 0.7142857142857143
+        }
+      },
+      "provider_success_rates": {
+        "payflow": 0.47368421052631576,
+        "quickpay": 0.675,
+        "vipay": 0.7804878048780488
+      },
+      "default_success_rate": 0.68
     },
-    "traffic_share_balanced": {},
-    "volume_share_balanced": {},
-    "amount_tiered": {},
-    "priority_cascade": {}
+    "traffic_share_balanced": {
+    },
+    "volume_share_balanced": {
+    },
+    "amount_tiered": {
+    },
+    "priority_cascade": {
+    }
+  },
+  "calibration": {
+    "history_file": "operations_history.csv",
+    "history_sha256": "97c3b1eb7fdc04bc2053e46ee726845b5f1cc1f8ae137cd84469bc2426403196",
+    "weight_method": "empirical_initial_weights_v1",
+    "overall": {
+      "operation_count": 100,
+      "approved_count": 68,
+      "expired_count": 16,
+      "rejected_count": 16,
+      "status_counts": {
+        "approved": 68,
+        "expired": 16,
+        "rejected": 16
+      },
+      "success_rate": 0.68,
+      "average_amount": 33915.0,
+      "failures": {
+        "expired": {
+          "count": 16,
+          "share_pct": 16.0,
+          "reasons": {
+            "unspecified": {
+              "count": 16,
+              "share_pct": 100.0
+            }
+          }
+        },
+        "rejected": {
+          "count": 16,
+          "share_pct": 16.0,
+          "reasons": {
+            "unspecified": {
+              "count": 16,
+              "share_pct": 100.0
+            }
+          }
+        }
+      }
+    },
+    "providers": {
+      "payflow": {
+        "operation_count": 19,
+        "approved_count": 9,
+        "expired_count": 7,
+        "rejected_count": 3,
+        "status_counts": {
+          "approved": 9,
+          "expired": 7,
+          "rejected": 3
+        },
+        "success_rate": 0.47368421052631576,
+        "average_amount": 15131.578947368422,
+        "failures": {
+          "expired": {
+            "count": 7,
+            "share_pct": 36.84210526315789,
+            "reasons": {
+              "unspecified": {
+                "count": 7,
+                "share_pct": 100.0
+              }
+            }
+          },
+          "rejected": {
+            "count": 3,
+            "share_pct": 15.789473684210526,
+            "reasons": {
+              "unspecified": {
+                "count": 3,
+                "share_pct": 100.0
+              }
+            }
+          }
+        },
+        "banks": {
+          "alfa": {
+            "operation_count": 7,
+            "approved_count": 2,
+            "expired_count": 3,
+            "rejected_count": 2,
+            "status_counts": {
+              "approved": 2,
+              "expired": 3,
+              "rejected": 2
+            },
+            "success_rate": 0.2857142857142857,
+            "average_amount": 14500.0,
+            "failures": {
+              "expired": {
+                "count": 3,
+                "share_pct": 42.857142857142854,
+                "reasons": {
+                  "unspecified": {
+                    "count": 3,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 2,
+                "share_pct": 28.57142857142857,
+                "reasons": {
+                  "unspecified": {
+                    "count": 2,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "raiffeisen": {
+            "operation_count": 4,
+            "approved_count": 2,
+            "expired_count": 2,
+            "rejected_count": 0,
+            "status_counts": {
+              "approved": 2,
+              "expired": 2
+            },
+            "success_rate": 0.5,
+            "average_amount": 22000.0,
+            "failures": {
+              "expired": {
+                "count": 2,
+                "share_pct": 50.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 2,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              }
+            }
+          },
+          "sberbank": {
+            "operation_count": 3,
+            "approved_count": 3,
+            "expired_count": 0,
+            "rejected_count": 0,
+            "status_counts": {
+              "approved": 3
+            },
+            "success_rate": 1.0,
+            "average_amount": 15666.666666666666,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              }
+            }
+          },
+          "tinkoff": {
+            "operation_count": 2,
+            "approved_count": 0,
+            "expired_count": 2,
+            "rejected_count": 0,
+            "status_counts": {
+              "expired": 2
+            },
+            "success_rate": 0.0,
+            "average_amount": 18250.0,
+            "failures": {
+              "expired": {
+                "count": 2,
+                "share_pct": 100.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 2,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              }
+            }
+          },
+          "vtb": {
+            "operation_count": 3,
+            "approved_count": 2,
+            "expired_count": 0,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 2,
+              "rejected": 1
+            },
+            "success_rate": 0.6666666666666666,
+            "average_amount": 4833.333333333333,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 33.33333333333333,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "quickpay": {
+        "operation_count": 40,
+        "approved_count": 27,
+        "expired_count": 6,
+        "rejected_count": 7,
+        "status_counts": {
+          "approved": 27,
+          "expired": 6,
+          "rejected": 7
+        },
+        "success_rate": 0.675,
+        "average_amount": 47125.0,
+        "failures": {
+          "expired": {
+            "count": 6,
+            "share_pct": 15.0,
+            "reasons": {
+              "unspecified": {
+                "count": 6,
+                "share_pct": 100.0
+              }
+            }
+          },
+          "rejected": {
+            "count": 7,
+            "share_pct": 17.5,
+            "reasons": {
+              "unspecified": {
+                "count": 7,
+                "share_pct": 100.0
+              }
+            }
+          }
+        },
+        "banks": {
+          "alfa": {
+            "operation_count": 7,
+            "approved_count": 5,
+            "expired_count": 2,
+            "rejected_count": 0,
+            "status_counts": {
+              "approved": 5,
+              "expired": 2
+            },
+            "success_rate": 0.7142857142857143,
+            "average_amount": 53785.71428571428,
+            "failures": {
+              "expired": {
+                "count": 2,
+                "share_pct": 28.57142857142857,
+                "reasons": {
+                  "unspecified": {
+                    "count": 2,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              }
+            }
+          },
+          "gazprombank": {
+            "operation_count": 5,
+            "approved_count": 3,
+            "expired_count": 0,
+            "rejected_count": 2,
+            "status_counts": {
+              "approved": 3,
+              "rejected": 2
+            },
+            "success_rate": 0.6,
+            "average_amount": 32600.0,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 2,
+                "share_pct": 40.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 2,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "raiffeisen": {
+            "operation_count": 7,
+            "approved_count": 5,
+            "expired_count": 0,
+            "rejected_count": 2,
+            "status_counts": {
+              "approved": 5,
+              "rejected": 2
+            },
+            "success_rate": 0.7142857142857143,
+            "average_amount": 55714.28571428572,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 2,
+                "share_pct": 28.57142857142857,
+                "reasons": {
+                  "unspecified": {
+                    "count": 2,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "sberbank": {
+            "operation_count": 5,
+            "approved_count": 1,
+            "expired_count": 3,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 1,
+              "expired": 3,
+              "rejected": 1
+            },
+            "success_rate": 0.2,
+            "average_amount": 49900.0,
+            "failures": {
+              "expired": {
+                "count": 3,
+                "share_pct": 60.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 3,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 20.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "tinkoff": {
+            "operation_count": 6,
+            "approved_count": 4,
+            "expired_count": 1,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 4,
+              "expired": 1,
+              "rejected": 1
+            },
+            "success_rate": 0.6666666666666666,
+            "average_amount": 37500.0,
+            "failures": {
+              "expired": {
+                "count": 1,
+                "share_pct": 16.666666666666664,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 16.666666666666664,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "vtb": {
+            "operation_count": 10,
+            "approved_count": 9,
+            "expired_count": 0,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 9,
+              "rejected": 1
+            },
+            "success_rate": 0.9,
+            "average_amount": 48100.0,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 10.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "vipay": {
+        "operation_count": 41,
+        "approved_count": 32,
+        "expired_count": 3,
+        "rejected_count": 6,
+        "status_counts": {
+          "approved": 32,
+          "expired": 3,
+          "rejected": 6
+        },
+        "success_rate": 0.7804878048780488,
+        "average_amount": 29731.70731707317,
+        "failures": {
+          "expired": {
+            "count": 3,
+            "share_pct": 7.317073170731707,
+            "reasons": {
+              "unspecified": {
+                "count": 3,
+                "share_pct": 100.0
+              }
+            }
+          },
+          "rejected": {
+            "count": 6,
+            "share_pct": 14.634146341463413,
+            "reasons": {
+              "unspecified": {
+                "count": 6,
+                "share_pct": 100.0
+              }
+            }
+          }
+        },
+        "banks": {
+          "alfa": {
+            "operation_count": 8,
+            "approved_count": 5,
+            "expired_count": 1,
+            "rejected_count": 2,
+            "status_counts": {
+              "approved": 5,
+              "expired": 1,
+              "rejected": 2
+            },
+            "success_rate": 0.625,
+            "average_amount": 39125.0,
+            "failures": {
+              "expired": {
+                "count": 1,
+                "share_pct": 12.5,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 2,
+                "share_pct": 25.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 2,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "gazprombank": {
+            "operation_count": 5,
+            "approved_count": 4,
+            "expired_count": 0,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 4,
+              "rejected": 1
+            },
+            "success_rate": 0.8,
+            "average_amount": 25700.0,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 20.0,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "raiffeisen": {
+            "operation_count": 7,
+            "approved_count": 6,
+            "expired_count": 0,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 6,
+              "rejected": 1
+            },
+            "success_rate": 0.8571428571428571,
+            "average_amount": 21928.571428571428,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 14.285714285714285,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "sberbank": {
+            "operation_count": 8,
+            "approved_count": 7,
+            "expired_count": 0,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 7,
+              "rejected": 1
+            },
+            "success_rate": 0.875,
+            "average_amount": 29750.0,
+            "failures": {
+              "expired": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 12.5,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          },
+          "tinkoff": {
+            "operation_count": 6,
+            "approved_count": 5,
+            "expired_count": 1,
+            "rejected_count": 0,
+            "status_counts": {
+              "approved": 5,
+              "expired": 1
+            },
+            "success_rate": 0.8333333333333334,
+            "average_amount": 37000.0,
+            "failures": {
+              "expired": {
+                "count": 1,
+                "share_pct": 16.666666666666664,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 0,
+                "share_pct": 0.0,
+                "reasons": {
+                }
+              }
+            }
+          },
+          "vtb": {
+            "operation_count": 7,
+            "approved_count": 5,
+            "expired_count": 1,
+            "rejected_count": 1,
+            "status_counts": {
+              "approved": 5,
+              "expired": 1,
+              "rejected": 1
+            },
+            "success_rate": 0.7142857142857143,
+            "average_amount": 23428.571428571428,
+            "failures": {
+              "expired": {
+                "count": 1,
+                "share_pct": 14.285714285714285,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              },
+              "rejected": {
+                "count": 1,
+                "share_pct": 14.285714285714285,
+                "reasons": {
+                  "unspecified": {
+                    "count": 1,
+                    "share_pct": 100.0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -17,10 +17,16 @@ jobs:
     - name: Install system Ruby
       run: |
         sudo apt-get update
-        sudo apt-get install -y ruby ruby-dev
+        sudo apt-get install -y ruby ruby-dev ruby-minitest
 
     - name: Verify Ruby Version
       run: ruby -v
+
+    - name: Run regression tests
+      run: ruby -Itest test/routing_test.rb
+
+    - name: Calibrate from history
+      run: ruby scripts/calibrate.rb
 
     - name: Run Payment Router
       run: |
