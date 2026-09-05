@@ -1,6 +1,9 @@
 [
   {
     "operation_id": "op_101",
+    "created_at": "2026-07-30T09:05:00+03:00",
+    "amount": 15000.0,
+    "bank": "sberbank",
     "selected_provider": "vipay",
     "attempts": [
       {
@@ -11,10 +14,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 38
+    "latency_sec": 36.79671465328487
   },
   {
     "operation_id": "op_102",
+    "created_at": "2026-07-30T09:05:30+03:00",
+    "amount": 48000.0,
+    "bank": "alfa",
     "selected_provider": "payflow",
     "attempts": [
       {
@@ -31,10 +37,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 52
+    "latency_sec": 51.29502302011331
   },
   {
     "operation_id": "op_103",
+    "created_at": "2026-07-30T09:06:00+03:00",
+    "amount": 150000.0,
+    "bank": "sberbank",
     "selected_provider": "quickpay",
     "attempts": [
       {
@@ -57,10 +66,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 29
+    "latency_sec": 27.388973207368732
   },
   {
     "operation_id": "op_104",
+    "created_at": "2026-07-30T09:06:30+03:00",
+    "amount": 3000.0,
+    "bank": "gazprombank",
     "selected_provider": "quickpay",
     "attempts": [
       {
@@ -83,10 +95,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 29
+    "latency_sec": 27.004708856973103
   },
   {
     "operation_id": "op_105",
+    "created_at": "2026-07-30T09:07:00+03:00",
+    "amount": 25000.0,
+    "bank": "tinkoff",
     "selected_provider": "vipay",
     "attempts": [
       {
@@ -103,10 +118,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 38
+    "latency_sec": 36.60866777801845
   },
   {
     "operation_id": "op_106",
+    "created_at": "2026-07-30T09:07:30+03:00",
+    "amount": 52000.0,
+    "bank": "sberbank",
     "selected_provider": "vipay",
     "attempts": [
       {
@@ -123,10 +141,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 38
+    "latency_sec": 38.28333898874318
   },
   {
     "operation_id": "op_107",
+    "created_at": "2026-07-30T09:08:00+03:00",
+    "amount": 800.0,
+    "bank": "sberbank",
     "selected_provider": "payflow",
     "attempts": [
       {
@@ -149,10 +170,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 52
+    "latency_sec": 44.2882987817365
   },
   {
     "operation_id": "op_108",
+    "created_at": "2026-07-30T09:08:30+03:00",
+    "amount": 42000.0,
+    "bank": "raiffeisen",
     "selected_provider": "quickpay",
     "attempts": [
       {
@@ -175,10 +199,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 29
+    "latency_sec": 31.29500951916196
   },
   {
     "operation_id": "op_109",
+    "created_at": "2026-07-30T09:09:00+03:00",
+    "amount": 10000.0,
+    "bank": "vtb",
     "selected_provider": "vipay",
     "attempts": [
       {
@@ -195,10 +222,13 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 38
+    "latency_sec": 39.93267641159107
   },
   {
     "operation_id": "op_110",
+    "created_at": "2026-07-30T09:09:30+03:00",
+    "amount": 40000.0,
+    "bank": "alfa",
     "selected_provider": "payflow",
     "attempts": [
       {
@@ -215,6 +245,6 @@
       }
     ],
     "simulated_result": "approved",
-    "latency_sec": 52
+    "latency_sec": 48.34037790633797
   }
 ]

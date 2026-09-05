@@ -88,35 +88,11 @@ module Strategies
 
   # 4. Стратегия мультифакторного адаптивного скоринга (Hybrid Adaptive) - ОСНОВНАЯ
   class HybridAdaptiveStrategy < BaseStrategy
-    # Эмпирическая матрица конверсии провайдеров по банкам на основе operations_history.csv
-    EMPIRICAL_BANK_SR = {
-      'payflow' => {
-        'sberbank' => 1.0,
-        'vtb' => 0.67,
-        'raiffeisen' => 0.50,
-        'alfa' => 0.28,
-        'tinkoff' => 0.0
-      },
-      'quickpay' => {
-        'vtb' => 0.90,
-        'alfa' => 0.71,
-        'raiffeisen' => 0.71,
-        'tinkoff' => 0.67,
-        'gazprombank' => 0.60,
-        'sberbank' => 0.20
-      },
-      'vipay' => {
-        'sberbank' => 0.88,
-        'raiffeisen' => 0.86,
-        'tinkoff' => 0.83,
-        'gazprombank' => 0.80,
-        'vtb' => 0.71,
-        'alfa' => 0.63
-      }
-    }.freeze
-
     def initialize(config = {})
       super('hybrid_adaptive', config)
+      @bank_success_rates = config['bank_success_rates'] || {}
+      @provider_success_rates = config['provider_success_rates'] || {}
+      @default_success_rate = config['default_success_rate']
       @w_count = (config['w_count'] || 1.0).to_f
       @w_vol   = (config['w_vol']   || 0.8).to_f
       @w_conv  = (config['w_conv']  || 25.0).to_f
@@ -146,11 +122,9 @@ module Strategies
       [winner, reason, details]
     end
 
-    def bank_success_rate(provider_name, bank)
-      provider_matrix = EMPIRICAL_BANK_SR[provider_name]
-      return 0.75 unless provider_matrix
-
-      provider_matrix[bank] || 0.70
+    def bank_success_rate(provider_name, bank, fallback_rate = 0.75)
+      @bank_success_rates.dig(provider_name, bank) ||
+        @provider_success_rates[provider_name] || @default_success_rate || fallback_rate
     end
 
     private
@@ -158,7 +132,7 @@ module Strategies
     def compute_score(provider, bank, total_ops, total_vol)
       d_count = delta_count(provider, total_ops)
       d_vol   = delta_volume(provider, total_vol)
-      sr      = bank_success_rate(provider.payment_system, bank)
+      sr      = bank_success_rate(provider.payment_system, bank, provider.conversion_24h)
       util    = provider.utilization_rate
       prio    = provider.priority
 
