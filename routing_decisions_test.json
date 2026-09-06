@@ -1,0 +1,2396 @@
+[
+  {
+    "operation_id": "op_111",
+    "created_at": "2026-07-30T09:10:00+03:00",
+    "amount": 8000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 93.4 (Δcnt=25.0, Δvol=25.0, sr=0.71, util=13.8%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 31.024246729859975
+  },
+  {
+    "operation_id": "op_112",
+    "created_at": "2026-07-30T09:10:30+03:00",
+    "amount": 40000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 131.59 (Δcnt=40.0, Δvol=40.0, sr=0.71, util=64.0%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'vtb' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 34.064629467953885
+  },
+  {
+    "operation_id": "op_113",
+    "created_at": "2026-07-30T09:11:00+03:00",
+    "amount": 10000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: 6.54 (Δcnt=-25.0, Δvol=8.3, sr=0.6, util=13.9%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 32.236881877363565
+  },
+  {
+    "operation_id": "op_114",
+    "created_at": "2026-07-30T09:11:30+03:00",
+    "amount": 75000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: -35.39 (Δcnt=6.7, Δvol=-29.0, sr=0.83, util=64.8%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "75000 > limit_amount_max 50000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 39.56879348195907
+  },
+  {
+    "operation_id": "op_115",
+    "created_at": "2026-07-30T09:12:00+03:00",
+    "amount": 52000.0,
+    "bank": "vtb",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "52000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 22.36 (Δcnt=-25.0, Δvol=11.5, sr=0.9, util=14.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29.92035717890126
+  },
+  {
+    "operation_id": "op_116",
+    "created_at": "2026-07-30T09:12:30+03:00",
+    "amount": 20000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -45.74 (Δcnt=-35.0, Δvol=-12.8, sr=0.6, util=14.6%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 24.902553999495655
+  },
+  {
+    "operation_id": "op_117",
+    "created_at": "2026-07-30T09:13:00+03:00",
+    "amount": 2000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: -13.82 (Δcnt=6.7, Δvol=-16.1, sr=0.71, util=66.3%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'vtb' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 39.24636073135542
+  },
+  {
+    "operation_id": "op_118",
+    "created_at": "2026-07-30T09:13:30+03:00",
+    "amount": 80000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "80000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -54.16 (Δcnt=-32.1, Δvol=-18.5, sr=0.6, util=14.9%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 26.021923040731792
+  },
+  {
+    "operation_id": "op_119",
+    "created_at": "2026-07-30T09:14:00+03:00",
+    "amount": 900.0,
+    "bank": "alfa",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -50.99 (Δcnt=35.0, Δvol=35.0, sr=0.29, util=96.7%, util>85%(-48), sr<30%(-100))"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 44.4090770268189
+  },
+  {
+    "operation_id": "op_120",
+    "created_at": "2026-07-30T09:14:30+03:00",
+    "amount": 150000.0,
+    "bank": "sberbank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -196.54 (Δcnt=-30.6, Δvol=-34.0, sr=0.2, util=15.9%, sr<30%(-100))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 27.380724659440595
+  },
+  {
+    "operation_id": "op_121",
+    "created_at": "2026-07-30T09:15:00+03:00",
+    "amount": 75000.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 53.15 (Δcnt=10.0, Δvol=13.3, sr=0.88, util=66.3%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "75000 > limit_amount_max 50000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 34.178633523654305
+  },
+  {
+    "operation_id": "op_122",
+    "created_at": "2026-07-30T09:15:30+03:00",
+    "amount": 25000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 23.88 (Δcnt=3.6, Δvol=2.6, sr=0.83, util=67.8%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'tinkoff' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 38.69098446467619
+  },
+  {
+    "operation_id": "op_123",
+    "created_at": "2026-07-30T09:16:00+03:00",
+    "amount": 80000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "80000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -79.36 (Δcnt=-25.0, Δvol=-34.5, sr=0.6, util=17.8%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 27.442932351800398
+  },
+  {
+    "operation_id": "op_124",
+    "created_at": "2026-07-30T09:16:30+03:00",
+    "amount": 25000.0,
+    "bank": "sberbank",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 63.88 (Δcnt=27.3, Δvol=34.9, sr=1.0, util=96.7%, util>85%(-48))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 45.528026836659286
+  },
+  {
+    "operation_id": "op_125",
+    "created_at": "2026-07-30T09:17:00+03:00",
+    "amount": 45000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 27.97 (Δcnt=4.3, Δvol=6.2, sr=0.71, util=68.3%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'vtb' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 37.2031680901238
+  },
+  {
+    "operation_id": "op_126",
+    "created_at": "2026-07-30T09:17:30+03:00",
+    "amount": 15000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: -69.86 (Δcnt=-21.7, Δvol=-33.1, sr=0.71, util=18.8%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 31.737156147166324
+  },
+  {
+    "operation_id": "op_127",
+    "created_at": "2026-07-30T09:18:00+03:00",
+    "amount": 42000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -75.0 (Δcnt=-25.0, Δvol=-34.0, sr=0.71, util=18.9%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 28.415646304107156
+  },
+  {
+    "operation_id": "op_128",
+    "created_at": "2026-07-30T09:18:30+03:00",
+    "amount": 40000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -82.62 (Δcnt=-27.9, Δvol=-36.4, sr=0.71, util=19.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 32.39255588593207
+  },
+  {
+    "operation_id": "op_129",
+    "created_at": "2026-07-30T09:19:00+03:00",
+    "amount": 52000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "52000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -89.24 (Δcnt=-30.6, Δvol=-38.3, sr=0.71, util=20.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 30.400987687430625
+  },
+  {
+    "operation_id": "op_130",
+    "created_at": "2026-07-30T09:19:30+03:00",
+    "amount": 95000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "95000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -96.22 (Δcnt=-32.9, Δvol=-40.6, sr=0.71, util=20.6%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 27.423139236911787
+  },
+  {
+    "operation_id": "op_131",
+    "created_at": "2026-07-30T09:20:00+03:00",
+    "amount": 150000.0,
+    "bank": "vtb",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -99.56 (Δcnt=-35.0, Δvol=-44.1, sr=0.9, util=21.8%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 30.781012604133092
+  },
+  {
+    "operation_id": "op_132",
+    "created_at": "2026-07-30T09:20:30+03:00",
+    "amount": 3000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 53.96 (Δcnt=11.4, Δvol=15.8, sr=0.71, util=69.2%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'vtb' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 33.82172912090148
+  },
+  {
+    "operation_id": "op_133",
+    "created_at": "2026-07-30T09:21:00+03:00",
+    "amount": 8000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -116.67 (Δcnt=-34.1, Δvol=-48.2, sr=0.6, util=23.7%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 31.712192524626182
+  },
+  {
+    "operation_id": "op_134",
+    "created_at": "2026-07-30T09:21:30+03:00",
+    "amount": 12000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 55.83 (Δcnt=9.6, Δvol=15.8, sr=0.83, util=69.3%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'tinkoff' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 35.815076646355934
+  },
+  {
+    "operation_id": "op_135",
+    "created_at": "2026-07-30T09:22:00+03:00",
+    "amount": 800.0,
+    "bank": "sberbank",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "800 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: 58.73 (Δcnt=26.7, Δvol=32.7, sr=1.0, util=97.5%, util>85%(-48))"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "800 < limit_amount_min 1000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 57.69589574853181
+  },
+  {
+    "operation_id": "op_136",
+    "created_at": "2026-07-30T09:22:30+03:00",
+    "amount": 35000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 52.63 (Δcnt=8.0, Δvol=14.9, sr=0.83, util=69.5%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'tinkoff' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 39.07193320255248
+  },
+  {
+    "operation_id": "op_137",
+    "created_at": "2026-07-30T09:23:00+03:00",
+    "amount": 180000.0,
+    "bank": "sberbank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "180000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "180000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -218.51 (Δcnt=-28.8, Δvol=-45.3, sr=0.2, util=23.8%, sr<30%(-100))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 33.108125870935226
+  },
+  {
+    "operation_id": "op_138",
+    "created_at": "2026-07-30T09:23:30+03:00",
+    "amount": 180000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "180000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "180000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -115.84 (Δcnt=-30.6, Δvol=-49.4, sr=0.6, util=26.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 27.84446530490144
+  },
+  {
+    "operation_id": "op_139",
+    "created_at": "2026-07-30T09:24:00+03:00",
+    "amount": 900.0,
+    "bank": "alfa",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -65.39 (Δcnt=24.3, Δvol=33.2, sr=0.29, util=97.6%, util>85%(-48), sr<30%(-100))"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 48.590922166227685
+  },
+  {
+    "operation_id": "op_140",
+    "created_at": "2026-07-30T09:24:30+03:00",
+    "amount": 40000.0,
+    "bank": "alfa",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: -68.59 (Δcnt=21.2, Δvol=33.2, sr=0.29, util=97.6%, util>85%(-48), sr<30%(-100))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 58.72800791967109
+  },
+  {
+    "operation_id": "op_141",
+    "created_at": "2026-07-30T09:25:00+03:00",
+    "amount": 8000.0,
+    "bank": "alfa",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: -76.75 (Δcnt=18.3, Δvol=30.6, sr=0.29, util=98.9%, util>85%(-48), sr<30%(-100))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 51.34474520165989
+  },
+  {
+    "operation_id": "op_142",
+    "created_at": "2026-07-30T09:25:30+03:00",
+    "amount": 10000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 61.47 (Δcnt=11.0, Δvol=19.9, sr=0.71, util=70.2%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'vtb' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 43.69987494854769
+  },
+  {
+    "operation_id": "op_143",
+    "created_at": "2026-07-30T09:26:00+03:00",
+    "amount": 35000.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 63.34 (Δcnt=8.8, Δvol=19.4, sr=0.88, util=70.4%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3010600 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 40.01910467917145
+  },
+  {
+    "operation_id": "op_144",
+    "created_at": "2026-07-30T09:26:30+03:00",
+    "amount": 2000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 56.34 (Δcnt=6.7, Δvol=17.6, sr=0.83, util=71.1%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'tinkoff' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 41.07199006963946
+  },
+  {
+    "operation_id": "op_145",
+    "created_at": "2026-07-30T09:27:00+03:00",
+    "amount": 10000.0,
+    "bank": "alfa",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: -78.47 (Δcnt=17.4, Δvol=30.3, sr=0.29, util=99.2%, util>85%(-48), sr<30%(-100))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 50.8650217007589
+  },
+  {
+    "operation_id": "op_146",
+    "created_at": "2026-07-30T09:27:30+03:00",
+    "amount": 900.0,
+    "bank": "raiffeisen",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "fallback_provider",
+        "details": "All commercial providers ineligible, routed to fallback gateway"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 14.400632337840328
+  },
+  {
+    "operation_id": "op_147",
+    "created_at": "2026-07-30T09:28:00+03:00",
+    "amount": 5000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -97.31 (Δcnt=-19.4, Δvol=-47.3, sr=0.71, util=28.3%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 26.869548152636547
+  },
+  {
+    "operation_id": "op_148",
+    "created_at": "2026-07-30T09:28:30+03:00",
+    "amount": 15000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000600 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -99.0 (Δcnt=-20.9, Δvol=-47.4, sr=0.71, util=28.3%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 30.088344043332043
+  },
+  {
+    "operation_id": "op_149",
+    "created_at": "2026-07-30T09:29:00+03:00",
+    "amount": 80000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "80000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -104.61 (Δcnt=-22.4, Δvol=-47.6, sr=0.6, util=28.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 28.46375323691985
+  },
+  {
+    "operation_id": "op_150",
+    "created_at": "2026-07-30T09:29:30+03:00",
+    "amount": 42000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3027600 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -105.02 (Δcnt=-23.7, Δvol=-48.9, sr=0.71, util=29.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29.963612978166175
+  },
+  {
+    "operation_id": "op_151",
+    "created_at": "2026-07-30T09:30:00+03:00",
+    "amount": 25000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 63.39 (Δcnt=10.0, Δvol=19.5, sr=0.83, util=71.2%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3010600 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 34.08916726648234
+  },
+  {
+    "operation_id": "op_152",
+    "created_at": "2026-07-30T09:30:30+03:00",
+    "amount": 15000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000600 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -104.32 (Δcnt=-23.8, Δvol=-48.5, sr=0.71, util=30.1%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 26.47570804773142
+  },
+  {
+    "operation_id": "op_153",
+    "created_at": "2026-07-30T09:31:00+03:00",
+    "amount": 2000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -106.01 (Δcnt=-25.0, Δvol=-48.7, sr=0.71, util=30.2%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 30.626402150689263
+  },
+  {
+    "operation_id": "op_154",
+    "created_at": "2026-07-30T09:31:30+03:00",
+    "amount": 42000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3027600 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -107.24 (Δcnt=-26.2, Δvol=-48.7, sr=0.71, util=30.3%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 31.502864741559957
+  },
+  {
+    "operation_id": "op_155",
+    "created_at": "2026-07-30T09:32:00+03:00",
+    "amount": 95000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "95000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -109.63 (Δcnt=-27.3, Δvol=-49.3, sr=0.71, util=30.8%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 30.13356043410133
+  },
+  {
+    "operation_id": "op_156",
+    "created_at": "2026-07-30T09:32:30+03:00",
+    "amount": 150000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -113.4 (Δcnt=-28.3, Δvol=-50.6, sr=0.71, util=32.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 30.608728214337557
+  },
+  {
+    "operation_id": "op_157",
+    "created_at": "2026-07-30T09:33:00+03:00",
+    "amount": 10000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -121.88 (Δcnt=-29.3, Δvol=-52.4, sr=0.6, util=33.9%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 27.33421344523011
+  },
+  {
+    "operation_id": "op_158",
+    "created_at": "2026-07-30T09:33:30+03:00",
+    "amount": 42000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3027600 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -123.08 (Δcnt=-30.3, Δvol=-52.5, sr=0.6, util=34.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 28.91461935281633
+  },
+  {
+    "operation_id": "op_159",
+    "created_at": "2026-07-30T09:34:00+03:00",
+    "amount": 48000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3033600 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -124.98 (Δcnt=-31.3, Δvol=-52.9, sr=0.6, util=34.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 26.410289000365655
+  },
+  {
+    "operation_id": "op_160",
+    "created_at": "2026-07-30T09:34:30+03:00",
+    "amount": 120000.0,
+    "bank": "tinkoff",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "120000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "120000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -124.81 (Δcnt=-32.1, Δvol=-53.4, sr=0.67, util=35.1%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 25.83952773592764
+  },
+  {
+    "operation_id": "op_161",
+    "created_at": "2026-07-30T09:35:00+03:00",
+    "amount": 150000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "150000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -126.63 (Δcnt=-33.0, Δvol=-54.5, sr=0.71, util=36.6%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 25.161670058020697
+  },
+  {
+    "operation_id": "op_162",
+    "created_at": "2026-07-30T09:35:30+03:00",
+    "amount": 30000.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 78.78 (Δcnt=14.5, Δvol=24.3, sr=0.88, util=71.7%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3015600 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 41.12092365399917
+  },
+  {
+    "operation_id": "op_163",
+    "created_at": "2026-07-30T09:36:00+03:00",
+    "amount": 40000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3025600 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -130.83 (Δcnt=-32.7, Δvol=-54.8, sr=0.6, util=38.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 28.64886217002167
+  },
+  {
+    "operation_id": "op_164",
+    "created_at": "2026-07-30T09:36:30+03:00",
+    "amount": 800.0,
+    "bank": "sberbank",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "800 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: 51.44 (Δcnt=21.8, Δvol=31.6, sr=1.0, util=99.5%, util>85%(-48))"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "800 < limit_amount_min 1000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 57.64266186778078
+  },
+  {
+    "operation_id": "op_165",
+    "created_at": "2026-07-30T09:37:00+03:00",
+    "amount": 3000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"alfa\"]"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -131.21 (Δcnt=-32.4, Δvol=-55.1, sr=0.6, util=39.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29.43072856006718
+  },
+  {
+    "operation_id": "op_166",
+    "created_at": "2026-07-30T09:37:30+03:00",
+    "amount": 120000.0,
+    "bank": "sberbank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "120000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "120000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -244.84 (Δcnt=-33.2, Δvol=-55.1, sr=0.2, util=39.0%, sr<30%(-100))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 32.81596007690995
+  },
+  {
+    "operation_id": "op_167",
+    "created_at": "2026-07-30T09:38:00+03:00",
+    "amount": 25000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 74.06 (Δcnt=15.0, Δvol=24.3, sr=0.71, util=72.3%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3011400 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 37.04031387400325
+  },
+  {
+    "operation_id": "op_168",
+    "created_at": "2026-07-30T09:38:30+03:00",
+    "amount": 52000.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 76.24 (Δcnt=13.7, Δvol=23.5, sr=0.88, util=72.8%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "52000 > limit_amount_max 50000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 35.18263867190186
+  },
+  {
+    "operation_id": "op_169",
+    "created_at": "2026-07-30T09:39:00+03:00",
+    "amount": 10000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 66.48 (Δcnt=12.4, Δvol=21.9, sr=0.71, util=73.8%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'vtb' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 42.646238801603246
+  },
+  {
+    "operation_id": "op_170",
+    "created_at": "2026-07-30T09:39:30+03:00",
+    "amount": 1500.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 69.76 (Δcnt=11.2, Δvol=21.6, sr=0.88, util=74.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 42.42062071986615
+  },
+  {
+    "operation_id": "op_171",
+    "created_at": "2026-07-30T09:40:00+03:00",
+    "amount": 3000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 67.15 (Δcnt=10.0, Δvol=21.6, sr=0.83, util=74.1%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'tinkoff' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 37.70820610717655
+  },
+  {
+    "operation_id": "op_172",
+    "created_at": "2026-07-30T09:40:30+03:00",
+    "amount": 8000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 65.81 (Δcnt=8.9, Δvol=21.5, sr=0.83, util=74.1%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'tinkoff' not in whitelist [\"sberbank\", \"alfa\"]"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 34.36044061494155
+  },
+  {
+    "operation_id": "op_173",
+    "created_at": "2026-07-30T09:41:00+03:00",
+    "amount": 12000.0,
+    "bank": "alfa",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: -70.63 (Δcnt=22.1, Δvol=31.8, sr=0.29, util=99.5%, util>85%(-48), sr<30%(-100))"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 58.65345252854511
+  },
+  {
+    "operation_id": "op_174",
+    "created_at": "2026-07-30T09:41:30+03:00",
+    "amount": 8000.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 66.21 (Δcnt=8.3, Δvol=21.4, sr=0.88, util=74.3%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3006400 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 34.90072757878493
+  },
+  {
+    "operation_id": "op_175",
+    "created_at": "2026-07-30T09:42:00+03:00",
+    "amount": 10000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3008400 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -116.82 (Δcnt=-26.6, Δvol=-52.5, sr=0.71, util=40.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 33.16178805724724
+  },
+  {
+    "operation_id": "op_176",
+    "created_at": "2026-07-30T09:42:30+03:00",
+    "amount": 900.0,
+    "bank": "sberbank",
+    "selected_provider": "payflow",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: 50.43 (Δcnt=21.2, Δvol=31.5, sr=1.0, util=99.9%, util>85%(-48))"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 56.367344885245586
+  },
+  {
+    "operation_id": "op_177",
+    "created_at": "2026-07-30T09:43:00+03:00",
+    "amount": 42000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3041300 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -116.9 (Δcnt=-26.5, Δvol=-52.6, sr=0.71, util=40.6%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 25.375845595477834
+  },
+  {
+    "operation_id": "op_178",
+    "created_at": "2026-07-30T09:43:30+03:00",
+    "amount": 120000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "120000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "120000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -122.03 (Δcnt=-27.2, Δvol=-52.9, sr=0.6, util=41.2%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 27.97091713445879
+  },
+  {
+    "operation_id": "op_179",
+    "created_at": "2026-07-30T09:44:00+03:00",
+    "amount": 1500.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000800 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -121.11 (Δcnt=-27.9, Δvol=-53.8, sr=0.71, util=42.7%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 32.02879400508557
+  },
+  {
+    "operation_id": "op_180",
+    "created_at": "2026-07-30T09:44:30+03:00",
+    "amount": 180000.0,
+    "bank": "tinkoff",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "180000 > limit_amount_max 100000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "180000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -123.34 (Δcnt=-28.6, Δvol=-53.8, sr=0.67, util=42.7%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29.897432879788816
+  },
+  {
+    "operation_id": "op_181",
+    "created_at": "2026-07-30T09:45:00+03:00",
+    "amount": 1500.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 71.74 (Δcnt=10.0, Δvol=23.3, sr=0.88, util=74.4%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000800 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 42.95508361080056
+  },
+  {
+    "operation_id": "op_182",
+    "created_at": "2026-07-30T09:45:30+03:00",
+    "amount": 1500.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000800 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -128.09 (Δcnt=-28.5, Δvol=-55.0, sr=0.6, util=44.9%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 30.32752064850508
+  },
+  {
+    "operation_id": "op_183",
+    "created_at": "2026-07-30T09:46:00+03:00",
+    "amount": 40000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3039300 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -125.11 (Δcnt=-29.2, Δvol=-55.0, sr=0.71, util=45.0%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 31.320801055742386
+  },
+  {
+    "operation_id": "op_184",
+    "created_at": "2026-07-30T09:46:30+03:00",
+    "amount": 1500.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 71.96 (Δcnt=9.9, Δvol=23.4, sr=0.88, util=74.5%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000800 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 35.4496533905489
+  },
+  {
+    "operation_id": "op_185",
+    "created_at": "2026-07-30T09:47:00+03:00",
+    "amount": 3000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 69.6 (Δcnt=8.9, Δvol=23.4, sr=0.83, util=74.5%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3002300 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 43.1716106259038
+  },
+  {
+    "operation_id": "op_186",
+    "created_at": "2026-07-30T09:47:30+03:00",
+    "amount": 95000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "95000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -124.63 (Δcnt=-28.3, Δvol=-55.2, sr=0.71, util=45.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29.691530100998836
+  },
+  {
+    "operation_id": "op_187",
+    "created_at": "2026-07-30T09:48:00+03:00",
+    "amount": 8000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 66.09 (Δcnt=8.4, Δvol=23.8, sr=0.71, util=74.6%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3007300 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 35.823509266126045
+  },
+  {
+    "operation_id": "op_188",
+    "created_at": "2026-07-30T09:48:30+03:00",
+    "amount": 12000.0,
+    "bank": "tinkoff",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 68.58 (Δcnt=7.5, Δvol=23.6, sr=0.83, util=74.7%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3011300 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 33.516995764282555
+  },
+  {
+    "operation_id": "op_189",
+    "created_at": "2026-07-30T09:49:00+03:00",
+    "amount": 15000.0,
+    "bank": "alfa",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'alfa' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3014300 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -124.22 (Δcnt=-27.6, Δvol=-55.2, sr=0.71, util=46.6%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 31.46462181152599
+  },
+  {
+    "operation_id": "op_190",
+    "created_at": "2026-07-30T09:49:30+03:00",
+    "amount": 900.0,
+    "bank": "alfa",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000200 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "fallback_provider",
+        "details": "All commercial providers ineligible, routed to fallback gateway"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 14.732323813859782
+  },
+  {
+    "operation_id": "op_191",
+    "created_at": "2026-07-30T09:50:00+03:00",
+    "amount": 8000.0,
+    "bank": "sberbank",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 69.39 (Δcnt=7.5, Δvol=23.4, sr=0.88, util=75.0%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3007300 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 37.600293082180954
+  },
+  {
+    "operation_id": "op_192",
+    "created_at": "2026-07-30T09:50:30+03:00",
+    "amount": 55000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "55000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -126.94 (Δcnt=-26.9, Δvol=-55.1, sr=0.6, util=46.8%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 28.165128939821155
+  },
+  {
+    "operation_id": "op_193",
+    "created_at": "2026-07-30T09:51:00+03:00",
+    "amount": 2000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3001300 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -124.63 (Δcnt=-27.4, Δvol=-55.4, sr=0.71, util=47.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 25.79503797575697
+  },
+  {
+    "operation_id": "op_194",
+    "created_at": "2026-07-30T09:51:30+03:00",
+    "amount": 3000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3002300 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -128.89 (Δcnt=-28.0, Δvol=-55.5, sr=0.6, util=47.5%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 25.92869918419761
+  },
+  {
+    "operation_id": "op_195",
+    "created_at": "2026-07-30T09:52:00+03:00",
+    "amount": 40000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 64.77 (Δcnt=7.9, Δvol=23.5, sr=0.71, util=75.1%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3039300 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 39.98680899290846
+  },
+  {
+    "operation_id": "op_196",
+    "created_at": "2026-07-30T09:52:30+03:00",
+    "amount": 2000.0,
+    "bank": "gazprombank",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'gazprombank' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3001300 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -126.98 (Δcnt=-27.9, Δvol=-54.5, sr=0.6, util=47.6%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 26.197103734457766
+  },
+  {
+    "operation_id": "op_197",
+    "created_at": "2026-07-30T09:53:00+03:00",
+    "amount": 8000.0,
+    "bank": "vtb",
+    "selected_provider": "vipay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "selected",
+        "reason": "best_score_match",
+        "details": "Adaptive score: 62.3 (Δcnt=7.4, Δvol=22.5, sr=0.71, util=75.9%)"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3007300 > limit 3000000"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 32.70324093072065
+  },
+  {
+    "operation_id": "op_198",
+    "created_at": "2026-07-30T09:53:30+03:00",
+    "amount": 52000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "amount_exceeds_limit",
+        "details": "52000 > limit_amount_max 50000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -122.91 (Δcnt=-27.9, Δvol=-54.4, sr=0.71, util=47.6%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 29.76236267282606
+  },
+  {
+    "operation_id": "op_199",
+    "created_at": "2026-07-30T09:54:00+03:00",
+    "amount": 900.0,
+    "bank": "tinkoff",
+    "selected_provider": "spacepayments",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3000200 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "skipped",
+        "reason": "amount_below_minimum",
+        "details": "900 < limit_amount_min 1000"
+      },
+      {
+        "provider": "spacepayments",
+        "decision": "selected",
+        "reason": "fallback_provider",
+        "details": "All commercial providers ineligible, routed to fallback gateway"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 14.294725570708652
+  },
+  {
+    "operation_id": "op_200",
+    "created_at": "2026-07-30T09:54:30+03:00",
+    "amount": 30000.0,
+    "bank": "raiffeisen",
+    "selected_provider": "quickpay",
+    "attempts": [
+      {
+        "provider": "vipay",
+        "decision": "skipped",
+        "reason": "bank_not_in_list",
+        "details": "bank 'raiffeisen' not in whitelist [\"sberbank\", \"tinkoff\", \"vtb\"]"
+      },
+      {
+        "provider": "payflow",
+        "decision": "skipped",
+        "reason": "daily_limit_exceeded",
+        "details": "Projected daily 3029300 > limit 3000000"
+      },
+      {
+        "provider": "quickpay",
+        "decision": "selected",
+        "reason": "only_eligible_provider",
+        "details": "Adaptive score: -123.52 (Δcnt=-27.8, Δvol=-54.6, sr=0.71, util=48.3%)"
+      }
+    ],
+    "simulated_result": "approved",
+    "latency_sec": 27.845397950995192
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "period": "2026-07-30",
+  "total_operations": 90,
+  "distribution": {
+    "vipay": {
+      "count": 29,
+      "share_pct": 32.22,
+      "target_pct": 40.0,
+      "volume_rub": 603500.0,
+      "volume_share_pct": 17.27
+    },
+    "payflow": {
+      "count": 10,
+      "share_pct": 11.11,
+      "target_pct": 35.0,
+      "volume_rub": 99300.0,
+      "volume_share_pct": 2.84
+    },
+    "quickpay": {
+      "count": 48,
+      "share_pct": 53.33,
+      "target_pct": 25.0,
+      "volume_rub": 2790000.0,
+      "volume_share_pct": 79.82
+    },
+    "spacepayments": {
+      "count": 3,
+      "share_pct": 3.33,
+      "target_pct": 0.0,
+      "volume_rub": 2700.0,
+      "volume_share_pct": 0.08
+    }
+  },
+  "skip_reasons": {
+    "bank_not_in_list": 63,
+    "amount_exceeds_limit": 33,
+    "amount_below_minimum": 16,
+    "daily_limit_exceeded": 32
+  },
+  "provider_skip_reasons": {
+    "vipay": {
+      "bank_not_in_list": 41,
+      "amount_below_minimum": 8,
+      "amount_exceeds_limit": 10
+    },
+    "payflow": {
+      "bank_not_in_list": 22,
+      "amount_exceeds_limit": 23,
+      "daily_limit_exceeded": 32
+    },
+    "quickpay": {
+      "amount_below_minimum": 8
+    },
+    "spacepayments": {}
+  },
+  "projected_daily_utilization": {
+    "vipay": {
+      "used": 3803500.0,
+      "limit": 5000000.0,
+      "remaining": 1196500.0,
+      "utilization_pct": 76.07
+    },
+    "payflow": {
+      "used": 2999300.0,
+      "limit": 3000000.0,
+      "remaining": 700.0,
+      "utilization_pct": 99.98
+    },
+    "quickpay": {
+      "used": 3890000.0,
+      "limit": 8000000.0,
+      "remaining": 4110000.0,
+      "utilization_pct": 48.63
+    }
+  },
+  "daily_turnover_progress": {},
+  "recommendations": [
+    "Выявлена низкая надежность vipay на банках alfa, gazprombank, raiffeisen, sberbank, tinkoff, vtb. Рекомендация: ограничить in_progress_count_limit до 8 слотов во избежание парализации очереди",
+    "payflow исчерпал 99.98% суточного лимита (остаток: 700.0 ₽). Рекомендация: увеличить daily_amount_limit на 749125 ₽ или снизить traffic_percentage с 35.0% до 28.01%",
+    "Шлюз payflow отстает от квоты на 23.89 п.п. из-за жесткого потолка суммы 50000.0 ₽ (23 операций отсеяно). Рекомендация: перенаправлять чеки до 50000.0 ₽ приоритетно в payflow",
+    "Выявлена низкая надежность payflow на банках alfa, raiffeisen, tinkoff, vtb. Рекомендация: ограничить in_progress_count_limit до 4 слотов во избежание парализации очереди",
+    "Перерасход квоты quickpay (+28.33 п.п.) вызван обработкой банков gazprombank, raiffeisen (31 заявок), не поддерживаемых другими шлюзами. Рекомендация: подключить шлюзы payflow, vipay к приему данных банков",
+    "Выявлена низкая надежность quickpay на банках alfa, gazprombank, raiffeisen, sberbank, tinkoff, vtb. Рекомендация: ограничить in_progress_count_limit до 12 слотов во избежание парализации очереди"
+  ]
+}
